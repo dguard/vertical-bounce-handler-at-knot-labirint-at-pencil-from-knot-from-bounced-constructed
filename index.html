@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+    <script>
+        // keep
+        let pencil = new Pencil()
+        let sceneWalkingAroundLabirint = new SceneWalkingAroundLabirint()
+
+        let draftFabrikk = new DraftFabrikk()
+        let bottomStatement = draftFabrikk.constructBottomStatement()
+
+        pencil.rememberSample(sceneWalkingAroundLabirint, new KnotLabirint())
+        pencil.useScene(sceneWalkingAroundLabirint)
+
+        let knotLabirint = new KnotLabirint()
+
+        draftFabrikk.connectKnotToBottomStatement(bottomStatement, knotLabirint)
+
+        // keep !
+        pencil.provideScene().bindRotating(knotLabirint, knotLabirint.rotating)
+        pencil.provideScene().bindDistance(knotLabirint, knotLabirint.distance)
+
+        pencil.provideScene().putKnotConnectedToBottomStatement(knotLabirint)
+
+        let viewportPointerBelongings = draftFabrikk.constructViewport()
+        pencil.useViewport(/* keep */ viewportPointerBelongings.atVerticalPosition, viewportPointerBelongings.atDistance, viewportPointerBelongings.atHorizontalPosition)
+
+        pencil.draw()
+    </script>
+
+</body>
+</html>
